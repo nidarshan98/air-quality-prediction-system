@@ -61,7 +61,7 @@ def load_data():
 def load_model():
     """Load the trained model, scaler, and encoders"""
     try:
-        model = joblib.load('Models/aqi_prediction_model.pkl')
+        model = joblib.load('Models/aqi_prediction_model_compressed.pkl')
         scaler = joblib.load('Models/scaler.pkl')
         encoders = joblib.load('Models/label_encoders.pkl')
         return model, scaler, encoders
