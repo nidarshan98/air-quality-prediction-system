@@ -196,7 +196,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 **Your Name**
 - GitHub: [@nidarshan98](https://github.com/nidarshan98)
-- Project Link: [https://github.com/yourusername/airsense-pro](https://github.com/nidarshan98/air-quality-prediction-system)
+- Project Link: [https://github.com/nidarshan98e/airsense-pro](https://github.com/nidarshan98/air-quality-prediction-system)
 
 ## 🙏 Acknowledgments
 
