@@ -1,4 +1,3 @@
-app_code = '''
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -696,5 +695,5 @@ This dashboard analyzes air quality data from 26 Indian cities covering the peri
 """)
 
 st.sidebar.markdown("---")
-st.sidebar.info("💡 **Tip:** Use the tabs in each section to explore different aspects of the data.")'''
+st.sidebar.info("💡 **Tip:** Use the tabs in each section to explore different aspects of the data.")
 
