@@ -62,7 +62,7 @@ def load_data():
 def load_model():
     """Load the trained model, scaler, and encoders"""
     try:
-        model = joblib.load('Models/aqi_prediction_model.pkl')
+        model = joblib.load('Models/aqi_prediction_model_compressed.pkl')
         scaler = joblib.load('Models/scaler.pkl')
         encoders = joblib.load('Models/label_encoders.pkl')
         return model, scaler, encoders
@@ -262,18 +262,6 @@ elif page == "Exploratory Data Analysis":
             )
             st.plotly_chart(fig, use_container_width=True)
             
-            # Average by year
-            yearly_avg = data.groupby(data['Date'].dt.year)[pollutants].mean()
-            fig2 = go.Figure()
-            for pol in pollutants:
-                fig2.add_trace(go.Bar(x=yearly_avg.index, y=yearly_avg[pol], name=pol))
-            fig2.update_layout(
-                title='Average Pollutant Levels by Year',
-                xaxis_title='Year',
-                yaxis_title='Concentration (µg/m³)',
-                barmode='group'
-            )
-            st.plotly_chart(fig2, use_container_width=True)
         
         # Tab 2: City Analysis
         with tab2:
@@ -405,18 +393,6 @@ elif page == "Exploratory Data Analysis":
             col1, col2 = st.columns(2)
             
             with col1:
-                # AQI distribution
-                fig = px.histogram(
-                    data,
-                    x='AQI',
-                    nbins=50,
-                    title='AQI Distribution',
-                    labels={'AQI': 'Air Quality Index'},
-                    color_discrete_sequence=['steelblue']
-                )
-                st.plotly_chart(fig, use_container_width=True)
-            
-            with col2:
                 # AQI Bucket distribution
                 if 'AQI_Bucket' in data.columns:
                     aqi_counts = data['AQI_Bucket'].value_counts()
@@ -439,7 +415,7 @@ elif page == "Exploratory Data Analysis":
                 color=city_aqi.values,
                 color_continuous_scale='Reds'
             )
-            fig.update_xaxis(tickangle=45)
+            fig.update_xaxes(tickangle=45)
             st.plotly_chart(fig, use_container_width=True)
 
 # ============================================================================
